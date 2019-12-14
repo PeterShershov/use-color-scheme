@@ -1,1 +1,1 @@
-export { useColorScheme } from './use-color-scheme';
+export { usePreferColorScheme } from './use-prefer-color-scheme';

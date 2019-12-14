@@ -2,48 +2,48 @@ import expect from 'expect';
 import React from 'react';
 import { render } from 'react-dom';
 import sinon, { spy } from 'sinon';
-import { useColorScheme } from '../src/use-color-scheme';
+import { usePreferColorScheme } from '../src/use-prefer-color-scheme';
 import { renderTestElement } from './render-test-element';
 
 const TestComponent: React.FC = () => {
-	const colorScheme = useColorScheme();
-	return <div>{colorScheme}</div>;
+    const colorScheme = usePreferColorScheme();
+    return <div>{colorScheme}</div>;
 };
 
 describe('use-color-scheme', () => {
-	let container: HTMLDivElement;
-	beforeEach(() => {
-		container = renderTestElement({ id: 'test' });
-		render(<TestComponent />, container);
-	});
+    let container: HTMLDivElement;
+    beforeEach(() => {
+        container = renderTestElement({ id: 'test' });
+        render(<TestComponent />, container);
+    });
 
-	afterEach(() => {
-		document.body.removeChild(container);
-	});
+    afterEach(() => {
+        document.body.removeChild(container);
+    });
 
-	it('returns `light` as initial value', () => {
-		const matchMediaStub = sinon.stub();
+    it('returns `light` as initial value', () => {
+        const matchMediaStub = sinon.stub();
 
-		matchMediaStub.returns({
-			addListener: spy(),
-			matches: false,
-			removeListener: spy()
-		});
+        matchMediaStub.returns({
+            addListener: spy(),
+            matches: false,
+            removeListener: spy()
+        });
 
-		window.matchMedia = matchMediaStub;
-		expect(document.querySelector('#test')?.textContent).toBe('light');
-	});
+        window.matchMedia = matchMediaStub;
+        expect(document.querySelector('#test')?.textContent).toBe('light');
+    });
 
-	it('returns `dark` as initial value', () => {
-		const matchMediaStub = sinon.stub();
+    it('returns `dark` as initial value', () => {
+        const matchMediaStub = sinon.stub();
 
-		matchMediaStub.returns({
-			addListener: spy(),
-			matches: true,
-			removeListener: spy()
-		});
+        matchMediaStub.returns({
+            addListener: spy(),
+            matches: true,
+            removeListener: spy()
+        });
 
-		window.matchMedia = matchMediaStub;
-		expect(document.querySelector('#test')?.textContent).toBe('light');
-	});
+        window.matchMedia = matchMediaStub;
+        expect(document.querySelector('#test')?.textContent).toBe('light');
+    });
 });
