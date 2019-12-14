@@ -1,12 +1,12 @@
-# use-color-scheme
+# use-prefer-color-scheme
 
 Getting and watching OS color scheme changes via react hook.
 
 ```tsx
-import { useColorScheme } from 'use-color-scheme';
+import { usePreferColorScheme } from 'use-prefer-color-scheme';
 
 const MyComponent = () => {
-	const colorScheme = useColorScheme(); // 'light' or 'dark'
+	const colorScheme = usePreferColorScheme(); // 'light' or 'dark'
 
 	return <div>{colorScheme}</div>;
 };
