@@ -1,0 +1,40 @@
+{
+	"name": "use-color-scheme",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"clean": "rimraf ./cjs ./esm",
+		"prebuild": "yarn clean",
+		"build": "yarn build:cjs && yarn build:esm",
+		"build:cjs": "tsc --module commonjs --outDir cjs",
+		"build:esm": "tsc --module esnext --outDir esm",
+		"test": "mocha-pup \"test/**/*.spec.ts?(x)\""
+	},
+	"peerDependencies": {
+		"react": "^16.12.0"
+	},
+	"sideEffects": "false",
+	"devDependencies": {
+		"@ts-tools/build": "^1.2.0",
+		"@ts-tools/webpack-loader": "^1.1.0",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.12.5",
+		"@types/react": "^16.9.16",
+		"@types/react-dom": "^16.9.4",
+		"@types/sinon": "^7.5.1",
+		"expect": "^24.9.0",
+		"mocha": "^6.2.2",
+		"mocha-pup": "^1.0.0",
+		"prettier": "^1.18.2",
+		"puppeteer": "^2.0.0",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"rimraf": "^3.0.0",
+		"sinon": "^7.5.0",
+		"tslint": "^5.20.0",
+		"tslint-config-prettier": "^1.18.0",
+		"typescript": "^3.7.2",
+		"webpack": "^4.41.2"
+	}
+}
