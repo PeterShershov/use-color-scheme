@@ -13,7 +13,7 @@ const TestComponent: React.FC = () => {
 describe('use-color-scheme', () => {
     let container: HTMLDivElement;
     beforeEach(() => {
-        container = renderTestElement({ id: 'test' });
+        container = renderTestElement();
         render(<TestComponent />, container);
     });
 
